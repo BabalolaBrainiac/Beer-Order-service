@@ -3,11 +3,12 @@ package guru.sfg.beer.order.service.services;
 import guru.sfg.beer.order.service.domain.BeerOrder;
 import guru.sfg.beer.order.service.domain.Customer;
 import guru.sfg.beer.order.service.domain.OrderStatusEnum;
+import guru.sfg.beer.order.service.interfaces.BeerOrderService;
 import guru.sfg.beer.order.service.repositories.BeerOrderRepository;
 import guru.sfg.beer.order.service.repositories.CustomerRepository;
-import guru.sfg.beer.order.service.web.mappers.BeerOrderMapper;
 import guru.sfg.beer.order.service.web.model.BeerOrderDto;
 import guru.sfg.beer.order.service.web.model.BeerOrderPagedList;
+import guru.sfg.beer.order.service.web.mappers.BeerOrderMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
@@ -27,7 +28,6 @@ public class BeerOrderServiceImpl implements BeerOrderService {
     private final BeerOrderRepository beerOrderRepository;
     private final CustomerRepository customerRepository;
     private final BeerOrderMapper beerOrderMapper;
-    private final ApplicationEventPublisher publisher;
 
     public BeerOrderServiceImpl(BeerOrderRepository beerOrderRepository,
                                 CustomerRepository customerRepository,
@@ -35,7 +35,6 @@ public class BeerOrderServiceImpl implements BeerOrderService {
         this.beerOrderRepository = beerOrderRepository;
         this.customerRepository = customerRepository;
         this.beerOrderMapper = beerOrderMapper;
-        this.publisher = publisher;
     }
 
     @Override
@@ -75,8 +74,6 @@ public class BeerOrderServiceImpl implements BeerOrderService {
 
             log.debug("Saved Beer Order: " + beerOrder.getId());
 
-            //todo impl
-          //  publisher.publishEvent(new NewBeerOrderEvent(savedBeerOrder));
 
             return beerOrderMapper.beerOrderToDto(savedBeerOrder);
         }

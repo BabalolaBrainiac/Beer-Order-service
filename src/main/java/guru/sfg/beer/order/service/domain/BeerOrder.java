@@ -34,7 +34,6 @@ public class BeerOrder extends BaseEntity {
     }
 
     private String customerRef;
-
     @ManyToOne
     private Customer customer;
 

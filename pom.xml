@@ -25,13 +25,6 @@
         <name>Spring Framework Guru</name>
     </organization>
 
-    <developers>
-        <developer>
-            <name>John Thompson</name>
-            <organization>Spring Framework Guru</organization>
-        </developer>
-    </developers>
-
     <properties>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -87,7 +80,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.18.20</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>

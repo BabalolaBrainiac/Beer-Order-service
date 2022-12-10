@@ -1,4 +1,4 @@
-package guru.sfg.beer.order.service.services;
+package guru.sfg.beer.order.service.interfaces;
 
 
 import guru.sfg.beer.order.service.web.model.BeerOrderDto;
