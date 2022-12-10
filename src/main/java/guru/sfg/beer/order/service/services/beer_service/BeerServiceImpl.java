@@ -39,10 +39,8 @@ public class BeerServiceImpl implements BeerService {
 
     @Override
     public Optional<BeerDTO> getBeerByUpc(String upc) {
-
-        Optional<BeerDTO> newBeer =  Optional.ofNullable(restTemplate.getForObject(beerServiceHost + BeerServiceUpcPath + upc, BeerDTO.class ));
-
         System.out.println("Beer Service Called at: " + beerServiceHost + BeerServiceUpcPath + upc);
-        return newBeer;
+
+      return Optional.ofNullable(restTemplate.getForObject(beerServiceHost + BeerServiceUpcPath + upc, BeerDTO.class ));
     }
 }
