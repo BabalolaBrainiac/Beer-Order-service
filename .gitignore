@@ -140,4 +140,4 @@ Desktop.ini
 .eslintcache
 /.idea/
 
-!/src/main/resources/application-mysql-beerorder-local.properties
+/src/main/resources/application-mysql-beerorder-local.properties
