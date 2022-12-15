@@ -4,7 +4,7 @@ import guru.sfg.beer.order.service.domain.Customer;
 import guru.sfg.beer.order.service.repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.jms.core.JmsTemplate;
 
 import java.util.UUID;
 
@@ -15,6 +15,7 @@ public class BeerOrderBootStrap implements CommandLineRunner {
     public static final String BEER_1_UPC = "0631234200036";
     public static final String BEER_2_UPC = "0631234300019";
     public static final String BEER_3_UPC = "0083783375213";
+    JmsTemplate jmsTemplate;
 
     private final CustomerRepository customerRepository;
 
@@ -29,6 +30,7 @@ public class BeerOrderBootStrap implements CommandLineRunner {
                     .customerName(TASTING_ROOM)
                     .apiKey(UUID.randomUUID())
                     .build());
+
 
             System.out.println("Tasting room customer id =" + tastingCustomer.getId().toString());
         }
